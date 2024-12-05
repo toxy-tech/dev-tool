@@ -1,0 +1,42 @@
+{
+    "name": "toxyTech/dev-tool",
+    "description": "Dev tool commands for ToxyTech CMS",
+    "type": "package",
+    "license": "MIT",
+    "keywords": [
+        "toxyTech",
+        "toxyTech cms",
+        "toxyTech platform",
+        "toxyTech dev tools"
+    ],
+    "homepage": "https://toxyTech.com",
+    "authors": [
+        {
+            "name": "ToxyTech Technologies",
+            "email": "contact@toxyTech.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ToxyTech\\DevTool\\": "src"
+        }
+    },
+    "require": {
+        "laravel/framework": "^10.31|^11.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.4.0",
+        "phpunit/phpunit": "^9.0|^10.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ToxyTech\\DevTool\\Providers\\DevToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}

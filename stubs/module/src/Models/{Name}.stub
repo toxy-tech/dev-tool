@@ -1,0 +1,25 @@
+<?php
+
+namespace {Module}\Models;
+
+use ToxyTech\Base\Casts\SafeContent;
+use ToxyTech\Base\Enums\BaseStatusEnum;
+use ToxyTech\Base\Models\BaseModel;
+
+/**
+ * @method static \ToxyTech\Base\Models\BaseQueryBuilder<static> query()
+ */
+class {Name} extends BaseModel
+{
+    protected $table = '{names}';
+
+    protected $fillable = [
+        'name',
+        'status',
+    ];
+
+    protected $casts = [
+        'status' => BaseStatusEnum::class,
+        'name' => SafeContent::class,
+    ];
+}

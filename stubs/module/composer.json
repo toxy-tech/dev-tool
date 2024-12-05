@@ -1,0 +1,19 @@
+{
+    "name": "toxyTech/{-name}",
+    "description": "{Name} package",
+    "type": "package",
+    "autoload": {
+        "psr-4": {
+            "ToxyTech\\{Name}\\": "src"
+        }
+    },
+    "require": {
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ToxyTech\\{Name}\\Providers\\{Name}ServiceProvider"
+            ]
+        }
+    }
+}

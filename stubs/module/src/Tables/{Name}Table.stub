@@ -1,0 +1,54 @@
+<?php
+
+namespace {Module}\Tables;
+
+use {Module}\Models\{Name};
+use ToxyTech\Table\Abstracts\TableAbstract;
+use ToxyTech\Table\Actions\DeleteAction;
+use ToxyTech\Table\Actions\EditAction;
+use ToxyTech\Table\BulkActions\DeleteBulkAction;
+use ToxyTech\Table\Columns\CreatedAtColumn;
+use ToxyTech\Table\Columns\IdColumn;
+use ToxyTech\Table\Columns\StatusColumn;
+use ToxyTech\Table\Columns\NameColumn;
+use Illuminate\Database\Eloquent\Builder;
+use ToxyTech\Table\HeaderActions\CreateHeaderAction;
+use ToxyTech\Table\BulkChanges\CreatedAtBulkChange;
+use ToxyTech\Table\BulkChanges\NameBulkChange;
+use ToxyTech\Table\BulkChanges\StatusBulkChange;
+
+class {Name}Table extends TableAbstract
+{
+    public function setup(): void
+    {
+        $this
+            ->model({Name}::class)
+            ->addHeaderAction(CreateHeaderAction::make()->route('{-name}.create'))
+            ->addActions([
+                EditAction::make()->route('{-name}.edit'),
+                DeleteAction::make()->route('{-name}.destroy'),
+            ])
+            ->addColumns([
+                IdColumn::make(),
+                NameColumn::make(),
+                CreatedAtColumn::make(),
+                StatusColumn::make(),
+            ])
+            ->addBulkActions([
+                DeleteBulkAction::make()->permission('{-name}.destroy'),
+            ])
+            ->addBulkChanges([
+                NameBulkChange::make(),
+                StatusBulkChange::make(),
+                CreatedAtBulkChange::make(),
+            ])
+            ->queryUsing(function (Builder $query) {
+                $query->select([
+                    'id',
+                    'name',
+                    'created_at',
+                    'status',
+                ]);
+            });
+    }
+}
