@@ -1,5 +1,5 @@
 {
-    "id": "toxyTech/{-theme}",
+    "id": "ToxyTech/{-theme}",
     "name": "{Theme}",
     "namespace": "Theme\\{Theme}\\",
     "author": null,

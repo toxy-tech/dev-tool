@@ -1,5 +1,5 @@
 {
-    "name": "toxyTech/{-name}",
+    "name": "ToxyTech/{-name}",
     "description": "{Name} package",
     "type": "package",
     "autoload": {

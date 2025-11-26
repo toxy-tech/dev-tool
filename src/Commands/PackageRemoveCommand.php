@@ -55,7 +55,7 @@ class PackageRemoveCommand extends Command implements PromptsForMissingInput
 
         $this->components->info('Removed package files successfully!');
 
-        $this->components->info(sprintf('Remove <comment>"toxyTech/%s": "*@dev"</comment> to composer.json then run <comment>composer update</comment> to remove this package!', $package));
+        $this->components->info(sprintf('Remove <comment>"ToxyTech/%s": "*@dev"</comment> to composer.json then run <comment>composer update</comment> to remove this package!', $package));
 
         return true;
     }

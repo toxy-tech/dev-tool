@@ -7,15 +7,15 @@ use ToxyTech\Table\Abstracts\TableAbstract;
 use ToxyTech\Table\Actions\DeleteAction;
 use ToxyTech\Table\Actions\EditAction;
 use ToxyTech\Table\BulkActions\DeleteBulkAction;
-use ToxyTech\Table\Columns\CreatedAtColumn;
-use ToxyTech\Table\Columns\IdColumn;
-use ToxyTech\Table\Columns\StatusColumn;
-use ToxyTech\Table\Columns\NameColumn;
-use Illuminate\Database\Eloquent\Builder;
-use ToxyTech\Table\HeaderActions\CreateHeaderAction;
 use ToxyTech\Table\BulkChanges\CreatedAtBulkChange;
 use ToxyTech\Table\BulkChanges\NameBulkChange;
 use ToxyTech\Table\BulkChanges\StatusBulkChange;
+use ToxyTech\Table\Columns\CreatedAtColumn;
+use ToxyTech\Table\Columns\IdColumn;
+use ToxyTech\Table\Columns\NameColumn;
+use ToxyTech\Table\Columns\StatusColumn;
+use ToxyTech\Table\HeaderActions\CreateHeaderAction;
+use Illuminate\Database\Eloquent\Builder;
 
 class {Name}Table extends TableAbstract
 {
@@ -30,7 +30,7 @@ class {Name}Table extends TableAbstract
             ])
             ->addColumns([
                 IdColumn::make(),
-                NameColumn::make(),
+                NameColumn::make()->route('{-name}.edit'),
                 CreatedAtColumn::make(),
                 StatusColumn::make(),
             ])

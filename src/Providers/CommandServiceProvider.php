@@ -26,6 +26,9 @@ use ToxyTech\DevTool\Commands\TestSendMailCommand;
 use ToxyTech\DevTool\Commands\ThemeCreateCommand;
 use ToxyTech\DevTool\Commands\WidgetCreateCommand;
 use ToxyTech\DevTool\Commands\WidgetRemoveCommand;
+use ToxyTech\PluginManagement\Providers\PluginManagementServiceProvider;
+use ToxyTech\Theme\Providers\ThemeServiceProvider;
+use ToxyTech\Widget\Providers\WidgetServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider
 {
@@ -61,20 +64,20 @@ class CommandServiceProvider extends ServiceProvider
             ]);
         }
 
-        if (class_exists(\ToxyTech\PluginManagement\Providers\PluginManagementServiceProvider::class)) {
+        if (class_exists(PluginManagementServiceProvider::class)) {
             $this->commands([
                 PluginCreateCommand::class,
                 PluginMakeCrudCommand::class,
             ]);
         }
 
-        if (class_exists(\ToxyTech\Theme\Providers\ThemeServiceProvider::class)) {
+        if (class_exists(ThemeServiceProvider::class)) {
             $this->commands([
                 ThemeCreateCommand::class,
             ]);
         }
 
-        if (class_exists(\ToxyTech\Widget\Providers\WidgetServiceProvider::class)) {
+        if (class_exists(WidgetServiceProvider::class)) {
             $this->commands([
                 WidgetCreateCommand::class,
                 WidgetRemoveCommand::class,
